@@ -18,6 +18,7 @@ export class BopsVsKitties extends HTMLElement {
         this.ctx = this.canvas.getContext('2d');
         this.canvas.addEventListener('click', (event) => {
             this.collisionDetection(event.offsetX, event.offsetY);
+            this.drawBallOnClick(event.offsetX, event.offsetY);
         });
         this.ballAnimation();
     }
@@ -46,6 +47,15 @@ export class BopsVsKitties extends HTMLElement {
         this.ctx.closePath();
     }
  
+    drawBallOnClick(x, y) {
+        // add a circle
+        this.ctx.beginPath();
+        this.ctx.arc(x, y, 15, 0, Math.PI * 2); //x, y, radius, start angle, end angle
+        this.ctx.fillStyle = '#0095DD'; // just fill it
+        this.ctx.fill();
+        this.ctx.closePath();
+    }
+
     collisionDetection(x, y) {
         if (x < this.x + 15 && x > this.x - 15
             && y < this.y + 15 && y > this.y - 15) {
