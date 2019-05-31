@@ -16,6 +16,9 @@ export class BopsVsKitties extends HTMLElement {
         this.root.appendChild(template.content.cloneNode(true));
         this.canvas = this.root.querySelector('canvas');
         this.ctx = this.canvas.getContext('2d');
+        this.canvas.addEventListener('click', (event) => {
+            this.collisionDetection(event.offsetX, event.offsetY);
+        });
         this.ballAnimation();
     }
     ballAnimation() {
@@ -41,5 +44,12 @@ export class BopsVsKitties extends HTMLElement {
         this.ctx.fillStyle = '#0095DD'; // just fill it
         this.ctx.fill();
         this.ctx.closePath();
+    }
+ 
+    collisionDetection(x, y) {
+        if (x < this.x + 15 && x > this.x - 15
+            && y < this.y + 15 && y > this.y - 15) {
+                alert('Hit!!!');
+            }
     }
 }
