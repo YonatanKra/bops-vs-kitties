@@ -51,7 +51,7 @@ export class BopsVsKitties extends HTMLElement {
     }
 
     render() {
-        requestAnimationFrame(this.render);
+        requestAnimationFrame(() => this.render());
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         // draw the ball
         this.drawBall();
