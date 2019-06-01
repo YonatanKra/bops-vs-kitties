@@ -1,6 +1,6 @@
 import { Bop } from './bop';
 
-fdescribe('Bop', () => {
+describe('Bop', () => {
     let bop;
     beforeEach(() => {
         bop = new Bop();
