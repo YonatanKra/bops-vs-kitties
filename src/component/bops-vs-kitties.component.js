@@ -20,22 +20,9 @@ export class BopsVsKitties extends HTMLElement {
             this.collisionDetection(event.offsetX, event.offsetY);
             this.drawBallOnClick(event.offsetX, event.offsetY);
         });
-        this.ballAnimation();
+        this.render();
     }
-    ballAnimation() {
-        let i = 0;
-        const interval = setInterval(() =>{
-            i++;
-            if (i > 300) {
-                window.clearInterval(interval);
-                return;
-            }
-            // clear the frame
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        // draw the ball
-        this.drawBall();
-        }, 16);
-    }
+    
     drawBall() {
         this.x = this.x ? this.x + 1 : 1;
         this.y = this.y ? this.y + 1 : 1;
@@ -61,5 +48,12 @@ export class BopsVsKitties extends HTMLElement {
             && y < this.y + 15 && y > this.y - 15) {
                 alert('Hit!!!');
             }
+    }
+
+    render() {
+        requestAnimationFrame(this.render);
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        // draw the ball
+        this.drawBall();
     }
 }
