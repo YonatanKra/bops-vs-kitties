@@ -51,6 +51,11 @@ export class StateManager {
                 type: 'kittie'
             }
         }
+
+        return {
+            index: -1,
+            type: null
+        }
     }
 
     static generateCoordinatesInRange(max) {

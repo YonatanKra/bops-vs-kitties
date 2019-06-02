@@ -121,5 +121,37 @@ describe('StateManager', () => {
             expect(manager.findEntityByCoordinates(bopCoords)).toEqual(bopObj);
             expect(manager.findEntityByCoordinates(kittyCoords)).toEqual(kittieObj);
         });
+
+        it('should return null type and index -1 if doesnt find anything', () => {
+            const kittie = manager.kitties[3];
+            kittie.x = 5000;
+            kittie.y = 7500;
+            const bop = manager.bops[2];
+            bop.x = 50;
+            bop.y = 75;
+
+            const kittieObj = {
+                type: null,
+                index: -1
+            };
+
+            const bopObj = {
+                type: null,
+                index: -1
+            };
+
+            const kittyCoords = {
+                x: -500,
+                y: -500
+            };
+
+            const bopCoords = {
+                x: -500,
+                y: -500
+            };
+
+            expect(manager.findEntityByCoordinates(bopCoords)).toEqual(bopObj);
+            expect(manager.findEntityByCoordinates(kittyCoords)).toEqual(kittieObj);
+        });
     });
 });
