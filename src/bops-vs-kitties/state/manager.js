@@ -1,8 +1,12 @@
 import { Entity } from '../entity/entity';
 import * as BOP_IMAGE from '../../assets/bop.png';
- 
+import * as CAT_IMAGE from '../../assets/cute_cat.png';
+
 const BOP_IMAGE_ELEMENT = new Image(75, 75);
 BOP_IMAGE_ELEMENT.src = BOP_IMAGE;
+
+const CAT_IMAGE_ELEMENT = new Image(75, 75);
+CAT_IMAGE_ELEMENT.src = CAT_IMAGE;
 
 export class StateManager {
     constructor() {
@@ -18,7 +22,7 @@ export class StateManager {
             return this.bops[this.bops.push(new Entity(x, y, BOP_IMAGE_ELEMENT))-1];
         }
 
-        return this.kitties[this.kitties.push(new Entity(x, y, BOP_IMAGE_ELEMENT))-1];
+        return this.kitties[this.kitties.push(new Entity(x, y, CAT_IMAGE_ELEMENT))-1];
     }
 
     remove(entity) {
@@ -48,7 +52,7 @@ export class StateManager {
             }
         }
     }
-    
+
     static generateCoordinatesInRange(max) {
         return Math.random() * max;
     }
