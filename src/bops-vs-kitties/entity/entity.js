@@ -6,11 +6,15 @@ export class Entity {
 
     draw(canvas) {
         const ctx = canvas.getContext('2d');
-        ctx.drawImage(this.image, this.x, this.y, 75, 75);
+        if (this.size < 75) {
+            this.size++;
+        }
+        ctx.drawImage(this.image, this.x, this.y, this.size, this.size);
     }
 
     position(x, y) {
         this.x = x;
         this.y = y;
+        this.size = 0;
     }
 }

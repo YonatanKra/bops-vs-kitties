@@ -47,7 +47,7 @@ describe('Entity', () => {
             
             entity.draw(canvas);
             
-            expect(ctx.drawImage).toHaveBeenCalledWith(dummyImage, 40, 50, 75, 75);
+            expect(ctx.drawImage).toHaveBeenCalledWith(dummyImage, 40, 50, jasmine.any(Number), jasmine.any(Number));
         });
     });
 
